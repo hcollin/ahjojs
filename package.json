@@ -1,0 +1,11 @@
+{
+  "name": "ahjojs",
+  "version": "0.1.0",
+  "description": "AhjoJs Core Modules",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Henrik Collin <hcollin78@gmail.com>",
+  "license": "ISC"
+}
