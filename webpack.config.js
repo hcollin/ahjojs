@@ -4,11 +4,12 @@ var webpack = require('webpack');
 var path = require('path');
 var libraryName = 'ahjo';
 var outputFile = libraryName + '.js';
+
 var config = {
   entry: __dirname + '/src/index.js',
   devtool: 'source-map',
   output: {
-    path: __dirname + '/lib',
+    path: path.resolve(__dirname, 'lib'),
     filename: outputFile,
     library: libraryName,
     libraryTarget: 'umd',
