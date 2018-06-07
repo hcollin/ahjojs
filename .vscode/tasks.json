@@ -1,0 +1,38 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Ahjo Core Build",
+            "type": "shell",
+            "command": "rollup -c",
+            "options": {
+                "cwd": "${workspaceFolder}/core"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Ahjo Client Build",
+            "type": "shell",
+            "command": "rollup -c",
+            "options": {
+                "cwd": "${workspaceFolder}/client"
+            },
+            
+            "problemMatcher": []
+        },
+        {
+            "label": "Ahjo Server Build",
+            "type": "shell",
+            "command": "rollup -c",
+            "options": {
+                "cwd": "${workspaceFolder}/server"
+            },
+            "presentation": {
+                "reveal": "always"
+            },
+            "problemMatcher": []
+        }
+    ]
+}
