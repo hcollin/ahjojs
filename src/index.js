@@ -1,6 +1,6 @@
 
 import AhjoCore from './core/AhjoCore';
-
+import AhjoServer from './server/AhjoServer';
 
 function ahjoTest(a, b) {
     return a + b;
@@ -8,5 +8,7 @@ function ahjoTest(a, b) {
 
 const Core = AhjoCore();
 
-
-module.exports = { ahjoTest: Core.test };
+module.exports = { 
+    ahjoTest: Core.test,
+    server: AhjoServer
+};
