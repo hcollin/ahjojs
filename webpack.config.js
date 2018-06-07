@@ -15,22 +15,20 @@ var config = {
     libraryTarget: 'umd',
     umdNamedDefine: true
   },
-//   module: {
-//     rules: [
-//       {
-//         test: /(\.js)$/,
-//         loader: 'babel',
-//         exclude: /(node_modules)/
-//       }
-//     ]
-//   },
-  externals: [
-
-  ]
-//   resolve: {
-//     root: path.resolve('./src'),
-//     extensions: ['', '.js']
-//   }
+  module: {
+    rules: [
+      {
+        test: /(\.js)$/,
+        exclude: /(node_modules)/,
+        use: {
+            loader: 'babel-loader',
+            options: { presets: ["es2015", "stage-1"]}
+        }
+        
+      }
+    ]
+  },
+  externals: []
 };
 
 module.exports = config;
