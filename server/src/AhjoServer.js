@@ -1,6 +1,5 @@
 import express from 'express';
 
-
 const DEFAULT_OPTIONS = {
     
 
@@ -30,11 +29,12 @@ function AhjoServer(userOptions={}) {
     const options = Object.assign({}, DEFAULT_OPTIONS, userOptions);
     
     const expressServer = express();
-
-
     
+    const endPoints = {};
+
     function apiCallHandler(request, response, next) {
-        console.log("API CALL!");
+        console.log("API CALL!", request);
+        return response;
     }
 
     /**
@@ -50,6 +50,14 @@ function AhjoServer(userOptions={}) {
         });
     }
 
+    /**
+     * Add new API end point for the server.
+     * @param {*} model 
+     * @param {*} options 
+     */
+    function addEndPointToServer(key, endPoint) {
+        endPoints[key] = endPoint;
+    }
 
     /**
      * Stop express server if it is running
@@ -61,9 +69,9 @@ function AhjoServer(userOptions={}) {
 
     return {
         start: startExpressServer,
-        stop: stopExpressServer
+        stop: stopExpressServer,
+        endPoint: addEndPointToServer
     }
-
 }
 
 

@@ -34,10 +34,9 @@ function AhjoServer(userOptions={}) {
     
     const expressServer = express();
 
-
-    
     function apiCallHandler(request, response, next) {
-        console.log("API CALL!");
+        console.log("API CALL!", request, response);
+        return response;
     }
 
     /**
@@ -53,6 +52,13 @@ function AhjoServer(userOptions={}) {
         });
     }
 
+    /**
+     * Add new API end point for the server.
+     * @param {*} model 
+     * @param {*} options 
+     */
+    function addEndPointToServer(key, endPoint) {
+    }
 
     /**
      * Stop express server if it is running
@@ -64,9 +70,9 @@ function AhjoServer(userOptions={}) {
 
     return {
         start: startExpressServer,
-        stop: stopExpressServer
+        stop: stopExpressServer,
+        endPoint: addEndPointToServer
     }
-
 }
 
 module.exports = AhjoServer;

@@ -3,7 +3,6 @@ import Configuration from './Config';
 
 function AhjoCore() {
 
-
     const configurationInstance = new Configuration();
 
     function test(a, b) {
