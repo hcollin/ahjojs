@@ -1,7 +1,9 @@
 import express from 'express';
 
+import RestEndPoint from './RestEndpoint';
+import ServerModel from './mst/ServerModel';
+
 const DEFAULT_OPTIONS = {
-    
 
     // This is the port where the server is listening for calls
     port: 3000,
@@ -14,7 +16,7 @@ const DEFAULT_OPTIONS = {
 
     // Ahjo client is located in this directory
     client: '/client/'
-}
+};
 
 /**
  * Ahjo Server
@@ -74,5 +76,8 @@ function AhjoServer(userOptions={}) {
     }
 }
 
-
-export default AhjoServer;
+export {
+    AhjoServer as AhjoServer,
+    ServerModel as AhjoServerModel,
+    RestEndPoint as AhjoRestEndPoint
+};

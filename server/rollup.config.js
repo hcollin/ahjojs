@@ -1,3 +1,6 @@
+
+import resolve from 'rollup-plugin-node-resolve';
+
 // rollup.config.js
 export default {
     input: 'src/AhjoServer.js',
@@ -6,5 +9,11 @@ export default {
         name: 'ahjoserver',
         format: 'cjs',
     },
-    external: [ 'express' ] // <-- suppresses the warning
+    plugins: [resolve({
+        // pass custom options to the resolve plugin
+        customResolveOptions: {
+          moduleDirectory: 'node_modules'
+        }
+      })],
+    external: [ 'express', 'mobx-state-tree', 'mobx' ] // <-- suppresses the warning
   };

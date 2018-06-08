@@ -19,7 +19,6 @@
             "options": {
                 "cwd": "${workspaceFolder}/client"
             },
-            
             "problemMatcher": []
         },
         {
@@ -32,6 +31,16 @@
             "presentation": {
                 "reveal": "always"
             },
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "type": "npm",
+            "script": "build",
+            "path": "server/",
             "problemMatcher": []
         }
     ]

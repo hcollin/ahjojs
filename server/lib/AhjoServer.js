@@ -1,11 +1,40 @@
 'use strict';
 
+Object.defineProperty(exports, '__esModule', { value: true });
+
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
+var mobxStateTree = require('mobx-state-tree');
 var express = _interopDefault(require('express'));
 
-const DEFAULT_OPTIONS = {
-    
+function RestEndpoint(targetModel) {
+
+    function handleRESTrequest(request) {
+
+    }
+
+    return {
+        requestHandler: handleRESTrequest
+    }
+
+}
+
+const ServerModel = function(baseModel) {
+    return mobxStateTree.types.compose(
+        baseModel, 
+        mobxStateTree.types.model({})
+            .actions(self => ({
+                
+                
+                
+            }))
+            .views(self => ({
+                isAhjoModel: () => true
+            }))
+        );
+};
+
+const DEFAULT_OPTIONS$1 = {
 
     // This is the port where the server is listening for calls
     port: 3000,
@@ -30,12 +59,12 @@ const DEFAULT_OPTIONS = {
 function AhjoServer(userOptions={}) {
     
     // Create options set by combining both defaults and user options.
-    const options = Object.assign({}, DEFAULT_OPTIONS, userOptions);
+    const options = Object.assign({}, DEFAULT_OPTIONS$1, userOptions);
     
     const expressServer = express();
 
     function apiCallHandler(request, response, next) {
-        console.log("API CALL!", request, response);
+        console.log("API CALL!", request);
         return response;
     }
 
@@ -75,4 +104,6 @@ function AhjoServer(userOptions={}) {
     }
 }
 
-module.exports = AhjoServer;
+exports.AhjoServer = AhjoServer;
+exports.AhjoServerModel = ServerModel;
+exports.AhjoRestEndPoint = RestEndpoint;

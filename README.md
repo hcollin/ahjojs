@@ -1,5 +1,41 @@
 # AhjoJs
 
+Contents:
+
+* Setting up shop
+* Mission of Ahjojs
+* Architecture
+* MVP
+
+
+## SETTING UP SHOP
+
+**These are instructions for developing AhjoJs further not about developing with AhjoJs. Yet**
+
+To set up a proper development environment for AhjoJs, a few non obvious things are required as prerequisite.
+
+### yalc as local npm repository
+
+yarn / npm link makes a link the test project with everything in node_modules copied too. That causes problems with Mobx (see issue [1082](https://github.com/mobxjs/mobx/issues/1082)). 
+
+Install yalc with
+
+`yarn global add yalc`
+
+Then publish any of the AhjoJs Packages by running command publish inside the directory (server, client, core).
+
+`yalc publish`
+
+The in test project install the package with add: 
+
+`yalc add ahjoserver`
+
+### rollup as bundler
+
+AhjoJS uses rollup as it's bundler instead of webpack as webpack 4 cannot really support packages that runs in both node and browser. Check out instructions from their [website ](https://rollupjs.org/).
+
+
+
 ## MISSION
 
 AhjoJs wants to be a solid framework for prototyping and small user base B2B applications that require a lot of features, easy maintainability,
